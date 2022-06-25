@@ -3,6 +3,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Geofence extends Model {
     static associate(models) {
+      
       Geofence.belongsTo(models.User, {
         foreignKey: "userId",
       });
