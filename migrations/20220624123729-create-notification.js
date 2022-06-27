@@ -23,12 +23,12 @@ module.exports = {
         allowNull: false,
       },
       notificationTypeId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: {
           model: {
             tableName: "notificationTypes",
           },
-          key: "id",
+          key: "name",
         },
         allowNull: false,
       },

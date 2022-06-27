@@ -4,20 +4,22 @@ module.exports = {
     await queryInterface.createTable("geofences", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      ttGeoId: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING,
       },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      geoCenterLat: {
-        type: Sequelize.DECIMAL(10, 8),
+      description: {
         allowNull: true,
-      },
-      geoCenterLng: {
-        type: Sequelize.DECIMAL(11, 8),
-        allowNull: true,
+        type: Sequelize.TEXT("long"),
       },
       deletedAt: {
         type: Sequelize.STRING,

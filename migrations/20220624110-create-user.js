@@ -36,7 +36,7 @@ module.exports = {
           model: {
             tableName: "roles",
           },
-          key: "id",
+          key: "name",
         },
         allowNull: false,
       },
