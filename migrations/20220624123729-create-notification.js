@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Notifications", {
+    await queryInterface.createTable("notifications", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "Geofences",
+            tableName: "geofences",
           },
           key: "id",
         },
@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "NotificationTypes",
+            tableName: "notificationTypes",
           },
           key: "id",
         },
@@ -39,14 +39,20 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Notifications");
+    await queryInterface.dropTable("notifications");
   },
 };

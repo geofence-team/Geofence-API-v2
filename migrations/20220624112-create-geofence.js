@@ -1,12 +1,11 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Geofences", {
+    await queryInterface.createTable("geofences", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       title: {
         type: Sequelize.STRING,
@@ -14,11 +13,11 @@ module.exports = {
       },
       geoCenterLat: {
         type: Sequelize.DECIMAL(10, 8),
-        allowNull: false,
+        allowNull: true,
       },
       geoCenterLng: {
         type: Sequelize.DECIMAL(11, 8),
-        allowNull: false,
+        allowNull: true,
       },
       deletedAt: {
         type: Sequelize.STRING,
@@ -31,7 +30,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "Users",
+            tableName: "users",
           },
           key: "id",
         },
@@ -40,14 +39,20 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Geofences");
+    await queryInterface.dropTable("geofences");
   },
 };

@@ -8,13 +8,15 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Request, {
         foreignKey: "userId",
       });
+      User.belongsTo(models.Role, {
+        foreignKey: "roleId",
+      });
     }
   }
   User.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     username: DataTypes.STRING,
-    roleType: DataTypes.ENUM('admin', 'teacher', 'driver', 'manager', 'parent'),
     password: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN
   }, {

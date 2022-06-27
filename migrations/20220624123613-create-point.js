@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Points", {
+    await queryInterface.createTable("points", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -20,11 +20,12 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "Geofences",
+            tableName: "geofences",
           },
           key: "id",
         },
         allowNull: false,
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Points");
+    await queryInterface.dropTable("points");
   },
 };

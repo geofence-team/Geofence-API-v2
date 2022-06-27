@@ -3,15 +3,15 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Request extends Model {
     static associate(models) {
-      Request.belongsTo(models.Geofence, {
+      geofenceRequest.belongsTo(models.Geofence, {
         foreignKey: "geofenceId",
       });
-      Request.belongsTo(models.User, {
+      geofenceRequest.belongsTo(models.User, {
         foreignKey: "userId",
       });
     }
   }
-  Request.init(
+  geofenceRequest.init(
     {
       userId: DataTypes.INTEGER,
       geofenceId: DataTypes.INTEGER,
@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Request",
+      modelName: "geofenceRequest",
     }
   );
-  return Request;
+  return geofenceRequest;
 };
