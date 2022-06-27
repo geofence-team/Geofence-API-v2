@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Request extends Model {
+  class geofenceRequest extends Model {
     static associate(models) {
       geofenceRequest.belongsTo(models.Geofence, {
         foreignKey: "geofenceId",

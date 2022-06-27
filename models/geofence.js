@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       Geofence.hasMany(models.Notification, {
         foreignKey: "geofenceId",
       });
-      Geofence.hasMany(models.Request, {
+      Geofence.hasMany(models.geofenceRequest, {
         foreignKey: "geofenceId",
       });
       Geofence.hasMany(models.Point, {

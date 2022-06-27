@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasMany(models.Request, {
+      User.hasMany(models.geofenceRequest, {
         foreignKey: "userId",
       });
       User.belongsTo(models.Role, {
