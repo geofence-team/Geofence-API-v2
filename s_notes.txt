@@ -1,0 +1,18 @@
+{
+    "title":"Geo-fence-1",
+    "geoCenterLat":"41.0046399476",
+    "geoCenterLng":"28.66843897797"
+}
+---------------
+{
+    "pushPointLat":"41.00305893",
+    "pushPointLng":"28.667771816253662",
+    "geofenceId":"3"
+}
+----------------
+
+
+model:
+    controller >
+    route >
+    service
