@@ -4,13 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   class Geofence extends Model {
     static associate(models) {
       
-      Geofence.belongsTo(models.User, {
-        foreignKey: "userId",
-      });
+      Geofence.belongsTo(models.User);
       Geofence.hasMany(models.Notification, {
         foreignKey: "geofenceId",
       });
-      Geofence.hasMany(models.geofenceRequest, {
+      Geofence.hasMany(models.GeofenceRequest, {
         foreignKey: "geofenceId",
       });
       Geofence.hasMany(models.Point, {
@@ -21,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
   
   Geofence.init(
     {
+      ttGeoId: DataTypes.STRING,
       title: DataTypes.STRING,
-      geoCenterLat: DataTypes.DECIMAL(10, 8),
-      geoCenterLng: DataTypes.DECIMAL(11, 8),
-      deletedAt: DataTypes.STRING,
+      description: DataTypes.STRING,
       isActive: DataTypes.BOOLEAN,
       userId: DataTypes.INTEGER,
+      deletedAt: DataTypes.STRING,
     },
     {
       sequelize,

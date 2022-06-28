@@ -5,12 +5,16 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasMany(models.geofenceRequest, {
+      User.hasMany(models.GeofenceRequest, {
         foreignKey: "userId",
       });
-      User.belongsTo(models.Role, {
-        foreignKey: "roleId",
+      User.hasMany(models.Geofence, {
+        foreignKey: "userId",
       });
+      User.hasMany(models.Notification, {
+        foreignKey: "userId",
+      });
+      User.belongsTo(models.Role, {foreignKey: 'roleId', targetKey: 'names'});
     }
   }
   User.init({
@@ -18,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    isActive: DataTypes.BOOLEAN
+    isActive: DataTypes.BOOLEAN,
+    roleId: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',

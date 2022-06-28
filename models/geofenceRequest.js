@@ -1,17 +1,13 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class geofenceRequest extends Model {
+  class GeofenceRequest extends Model {
     static associate(models) {
-      geofenceRequest.belongsTo(models.Geofence, {
-        foreignKey: "geofenceId",
-      });
-      geofenceRequest.belongsTo(models.User, {
-        foreignKey: "userId",
-      });
+      GeofenceRequest.belongsTo(models.Geofence);
+      GeofenceRequest.belongsTo(models.User);
     }
   }
-  geofenceRequest.init(
+  GeofenceRequest.init(
     {
       userId: DataTypes.INTEGER,
       geofenceId: DataTypes.INTEGER,
@@ -19,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "geofenceRequest",
+      modelName: "GeofenceRequest",
     }
   );
-  return geofenceRequest;
+  return GeofenceRequest;
 };

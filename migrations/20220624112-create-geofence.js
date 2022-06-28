@@ -21,9 +21,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT("long"),
       },
-      deletedAt: {
-        type: Sequelize.STRING,
-      },
       isActive: {
         type: Sequelize.BOOLEAN,
         defaultValue: 0,

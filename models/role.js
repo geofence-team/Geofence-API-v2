@@ -13,11 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Role.hasMany(models.User, {
         foreignKey: 'roleId',
+        sourceKey: "names"
       });
     }
   }
   Role.init({
-    name: {
+    names: {
       primaryKey: true,
       allowNull: false,
       type: DataTypes.STRING
