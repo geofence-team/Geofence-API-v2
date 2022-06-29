@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      pushPointLat: {
+      lat: {
         type: Sequelize.DECIMAL(10, 8),
         allowNull: false,
       },
-      pushPointLng: {
+      lng: {
         type: Sequelize.DECIMAL(11, 8),
         allowNull: false,
       },
@@ -25,15 +25,21 @@ module.exports = {
           key: "id",
         },
         allowNull: false,
-        onDelete: 'CASCADE',
+        onDelete: 'CASCADE', //if you deleted a geofence, all points related to it will be deleted too.
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true
       },
     });
   },

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       pushPointLat: DataTypes.DECIMAL(10, 8),
       pushPointLng: DataTypes.DECIMAL(11, 8),
-      geofenceId: DataTypes.INTEGER,
+      ttGeoId: DataTypes.STRING,
     },
     {
       sequelize,

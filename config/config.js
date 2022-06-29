@@ -16,6 +16,14 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: "mysql",
   },
+  url: {
+    TT_PROJ_ID: process.env.TT_PROJ_ID,
+    TT_API_KEY: process.env.TT_API_KEY,
+    TT_API_ADMIN_KEY: process.env.TT_API_ADMIN_KEY,
+  },
+
+
+
   // development: {
   //   username: process.env.DB_USERNAME,
   //   password: process.env.DB_PASS,
@@ -40,7 +48,6 @@ module.exports = {
     dialect: "mysql",
   },
 };
-
-
+  
 
   

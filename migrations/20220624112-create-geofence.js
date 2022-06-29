@@ -23,7 +23,7 @@ module.exports = {
       },
       isActive: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 0,
+        defaultValue: 1,
       },
       userId: {
         type: Sequelize.INTEGER,
