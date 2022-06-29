@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Point.init(
     {
-      pushPointLat: DataTypes.DECIMAL(10, 8),
-      pushPointLng: DataTypes.DECIMAL(11, 8),
-      ttGeoId: DataTypes.STRING,
+      lat: DataTypes.DECIMAL(10, 8),
+      lng: DataTypes.DECIMAL(11, 8),
+      geofenceId: DataTypes.STRING,
     },
     {
       sequelize,
