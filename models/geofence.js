@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       isActive: DataTypes.BOOLEAN,
       userId: DataTypes.INTEGER,
       deletedAt: DataTypes.STRING,
+      coordinates: DataTypes.STRING
     },
     {
       sequelize,
