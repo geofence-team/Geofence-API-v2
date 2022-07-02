@@ -22,8 +22,6 @@ module.exports = {
     TT_API_ADMIN_KEY: process.env.TT_API_ADMIN_KEY,
   },
 
-
-
   // development: {
   //   username: process.env.DB_USERNAME,
   //   password: process.env.DB_PASS,
