@@ -1,3 +1,8 @@
+--------------
+https://git.heroku.com/geofence-api-v2.git
+--------------
+mysql://bc819a1897336a:61684dc2@eu-cdbr-west-03.cleardb.net/heroku_5817f486a7c6ffe?reconnect=true
+--------------
 {
     "title":"Geo-fence-1",
     "geoCenterLat":"41.0046399476",
