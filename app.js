@@ -8,7 +8,9 @@ const models = require("./models");
 
 var indexRouter = require('./routes/apiRoutesV1');
 
-var app = express();
+const app = express();
+const PORT = process.env.PORT || 8000
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
